@@ -1,6 +1,6 @@
-# dsjin-profile
+# PWA-profile
 
-> dsjin profile
+> A PWA profile website
 
 ## Build Setup
 
