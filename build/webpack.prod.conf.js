@@ -102,9 +102,15 @@ const webpackConfig = merge(baseWebpackConfig, {
     new SWPrecacheWebpackPlugin({
       cacheId: 'dsjin-profile',
       filename: 'service-worker.js',
-      staticFileGlobs: ['dist/**/*.{js,html,css}'],
+      staticFileGlobs: ['dist/**/*.{js,html,css,jpg}'],
       minify: true,
-      stripPrefix: 'dist/'
+      stripPrefix: 'dist/',
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('https://us-central1-pwa-profile.cloudfunctions.net/skills'),
+          handler: 'cacheFirst'
+        }
+      ]
     })
   ]
 })

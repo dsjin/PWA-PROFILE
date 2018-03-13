@@ -2,6 +2,7 @@
   <div id="app">
     <Header></Header>
     <AboutMe></AboutMe>
+    <Skills></Skills>
   </div>
 </template>
 
@@ -16,17 +17,24 @@ const AboutMe = resolve => {
  resolve(require('./components/AboutMe.vue'))
  })
 }
-
+const Skills = resolve => {
+ require.ensure(['./components/Skills'], () => {
+ resolve(require('./components/Skills.vue'))
+ })
+}
 export default {
   name: 'app',
   components: {
     "Header":Header,
-    "AboutMe":AboutMe
+    "AboutMe":AboutMe,
+    "Skills":Skills
   }
 }
 </script>
 
 <style>
+@import url("https://use.fontawesome.com/releases/v5.0.7/css/all.css");
+
 body {
   margin: 0;
 }

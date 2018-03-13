@@ -18,14 +18,14 @@ export default {
 </script>
 <style>
     #aboutme{
-        margin-top: 10px
+        margin-top: 20px;
+        color: #402C2C
     }
     .content{
         position: relative;
         padding: 2%;
         background: #FFB2B2;
         max-width: 100%;
-        color: #FFFFFF
     }
 </style>
 
