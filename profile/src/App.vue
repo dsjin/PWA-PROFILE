@@ -3,6 +3,7 @@
     <Header></Header>
     <AboutMe></AboutMe>
     <Skills></Skills>
+    <Works></Works>
   </div>
 </template>
 
@@ -22,12 +23,18 @@ const Skills = resolve => {
  resolve(require('./components/Skills.vue'))
  })
 }
+const Works = resolve => {
+ require.ensure(['./components/Works'], () => {
+ resolve(require('./components/Works.vue'))
+ })
+}
 export default {
   name: 'app',
   components: {
     "Header":Header,
     "AboutMe":AboutMe,
-    "Skills":Skills
+    "Skills":Skills,
+    "Works":Works
   }
 }
 </script>

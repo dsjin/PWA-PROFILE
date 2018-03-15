@@ -7,11 +7,13 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "serve": "serve dist/"
   },
   "dependencies": {
     "vue": "^2.5.2",
-    "vue-resource": "^1.5.0"
+    "vue-resource": "^1.5.0",
+    "vue-touch": "^2.0.0-beta.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
