@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-      <div class="backgroud">
+      <div class="background">
           <div class="filter">
           </div>
       </div>
@@ -19,18 +19,31 @@ export default {
         .card{
             height: 200px !important;
         }
+        .background{
+            height: 200px !important
+        }
+        .filter{
+            height: 200px !important;
+        }
+        .card-description{
+            height: 50px !important
+        }
+        .card-description h1{
+            font-size: 1em
+        }
     }
     .card{
         position: relative;
         height: 400px;
         width: 100%;
         cursor: pointer;
+        overflow: hidden;
     }
-    .backgroud:hover{
+    .background:hover{
         transform: scale(1.1);
     }
-    .backgroud{
-        background: url('../../assets/images/profile.jpg') no-repeat center center;
+    .background{
+        background: url('../../assets/logo.png') no-repeat center center;
         height: 400px;
         width: 100%;
         transition: all .5s ease-in-out;

@@ -1,5 +1,5 @@
 <template>
-    <div id="works" class="container">
+    <div id="works" class="container" ref="Hello">
         <div class="content">
             <h3>Works</h3>
         </div>
@@ -29,8 +29,14 @@ export default {
       finalPercentage:0.0,
       activeSlide:0,
       sensitivity:25,
-      isPan:false
+      isPan:false,
+      addEvent:false
     }
+  },
+  created(){
+      if(!this.$isMobile()){
+          window.addEventListener('scroll', this.onScroll)
+      }
   },
   components:{
       "Card":Card
@@ -59,6 +65,28 @@ export default {
       },
       onTap:function(event){
           alert("Click")
+      },
+      onScroll:function(event){
+          if(window.pageYOffset >= this.$refs.Hello.getBoundingClientRect().top && this.$refs.Hello.getBoundingClientRect().bottom >= 0){
+              if(!this.addEvent){
+                  window.addEventListener('keyup', this.onPress)
+                  this.addEvent = !this.addEvent;
+              }
+          }else{
+              if(this.addEvent){
+                  window.removeEventListener('keyup', this.onPress)
+                  this.addEvent = !this.addEvent;
+              }
+          }
+      },
+      onPress:function(event){
+          if(event.key === "ArrowLeft"){
+              this.goToSlide(this.activeSlide-1)
+          }else if (event.key === "ArrowRight"){
+              this.goToSlide(this.activeSlide+1)
+          }else if (event.key === "Enter"){
+              alert("Click")
+          }
       },
       goToSlide:function(number){
             if(number < 0){
