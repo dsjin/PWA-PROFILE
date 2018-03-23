@@ -12,12 +12,20 @@
                 </v-touch>
             </div>
         </div>
+        <transition name="fade">
+            <Modal v-show="showModal"></Modal>
+        </transition>
     </div>
 </template>
 <script>
 const Card = resolve => {
  require.ensure(['./parts/Card'], () => {
  resolve(require('./parts/Card.vue'))
+ })
+}
+const ModalBox = resolve => {
+ require.ensure(['./parts/ModalBox'], () => {
+ resolve(require('./parts/ModalBox.vue'))
  })
 }
 export default {
@@ -30,7 +38,8 @@ export default {
       activeSlide:0,
       sensitivity:25,
       isPan:false,
-      addEvent:false
+      addEvent:false,
+      showModal:false
     }
   },
   created(){
@@ -39,7 +48,8 @@ export default {
       }
   },
   components:{
-      "Card":Card
+      "Card":Card,
+      "Modal":ModalBox
   },
   methods:{
       onPan:function(event){
@@ -80,12 +90,14 @@ export default {
           }
       },
       onPress:function(event){
-          if(event.key === "ArrowLeft"){
+          if(event.key === "ArrowLeft" && !this.showModal){
               this.goToSlide(this.activeSlide-1)
-          }else if (event.key === "ArrowRight"){
+          }else if (event.key === "ArrowRight" && !this.showModal){
               this.goToSlide(this.activeSlide+1)
-          }else if (event.key === "Enter"){
-              alert("Click")
+          }else if (event.key === "Enter" && !this.showModal){
+              this.showModal = true
+          }else if (event.key === "Escape" && this.showModal){
+              this.showModal = false
           }
       },
       goToSlide:function(number){
@@ -106,6 +118,22 @@ export default {
           return {
               transform : 'translateX(' + this.finalPercentage + '%)'
           }
+      },
+      modalStyle: function(){
+          var display = "none"
+          var opacity = 0
+          if (this.showModal) {
+              display = "block"
+              opacity = 1
+          }
+          return {
+              display : display
+          }
+      }
+  },
+  watch:{
+      showModal: function(){
+          document.querySelector('body').style.overflow = this.showModal? 'hidden' : null
       }
   }
 }
@@ -135,6 +163,12 @@ export default {
     }
     .is-animating{
         transition: transform 400ms cubic-bezier( 0.5, 0, 0.5, 1 )
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity 0.15s;
+    }
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
     }
 </style>
 
