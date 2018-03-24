@@ -1,5 +1,5 @@
 <template>
-    <div id="works" class="container" ref="Hello">
+    <div id="works" class="container" ref="Works">
         <div class="content">
             <h3>Works</h3>
         </div>
@@ -13,7 +13,9 @@
             </div>
         </div>
         <transition name="fade">
-            <Modal v-show="showModal"></Modal>
+            <v-touch v-show="showModal" @tap="onTap" ref="modalTouch">
+                <Modal ref="modal"></Modal>
+            </v-touch>
         </transition>
     </div>
 </template>
@@ -74,10 +76,14 @@ export default {
           }
       },
       onTap:function(event){
-          alert("Click")
+          if(event.target == this.$refs.modal.$el && this.$isMobile()){
+              this.showModal = false
+          }else{
+              this.showModal = true
+          }
       },
       onScroll:function(event){
-          if(window.pageYOffset >= this.$refs.Hello.getBoundingClientRect().top && this.$refs.Hello.getBoundingClientRect().bottom >= 0){
+          if(window.pageYOffset >= this.$refs.Works.getBoundingClientRect().top && this.$refs.Works.getBoundingClientRect().bottom >= 0){
               if(!this.addEvent){
                   window.addEventListener('keyup', this.onPress)
                   this.addEvent = !this.addEvent;
@@ -121,18 +127,21 @@ export default {
       },
       modalStyle: function(){
           var display = "none"
-          var opacity = 0
           if (this.showModal) {
               display = "block"
-              opacity = 1
           }
           return {
               display : display
           }
       }
   },
+  updated(){
+      if(this.$refs.modalTouch.$el.style.display === "" && this.showModal){
+          this.$refs.modal.$el.scrollTop = 0
+      }
+  },
   watch:{
-      showModal: function(){
+      showModal: function(value){
           document.querySelector('body').style.overflow = this.showModal? 'hidden' : null
       }
   }

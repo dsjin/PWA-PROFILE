@@ -21,11 +21,11 @@ export default {
   name:"skills",
   data:()=>{
     return {
-      skills:[]
+      skills:JSON
     }
   },
   created(){
-    this.$getData("https://us-central1-pwa-profile.cloudfunctions.net/skills", this.skills)
+    //this.$getData("https://us-central1-pwa-profile.cloudfunctions.net/skills", this.skills)
   },
   components:{
     "SkillCircle":Circle
