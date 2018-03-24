@@ -102,7 +102,7 @@ export default {
               this.goToSlide(this.activeSlide+1)
           }else if (event.key === "Enter" && !this.showModal){
               this.showModal = true
-          }else if (event.key === "Escape" && this.showModal){
+          }else if (event.key.includes("Esc") && this.showModal){
               this.showModal = false
           }
       },
