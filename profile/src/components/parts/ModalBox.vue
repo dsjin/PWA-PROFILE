@@ -16,10 +16,9 @@
                 <p>{{mock}}</p>
             </div>
             <div class="model-link">
-                <h4>Link</h4>
-                <div class="button _inline_flex _center_vertical">
-                    <div class="_flex _center_vertical"><i class="fab fa-github-square fa-2x"></i> <h4>Github Repository</h4></div>
-                    <div class="github-title">Hello</div>
+                <div class="_flex _center_vertical">
+                    <i class="fab fa-github-square fa-2x _purple-hover"></i>
+                    <p>Source code available</p>
                 </div>
             </div>
         </div>
@@ -134,10 +133,16 @@ export default {
         margin-top:1em;
         margin-bottom:1em;
     }
-    .button.github-title{
+    .button.link-title{
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+    .fab{
+        transition: all .2s ease-in;
+    }
+    ._purple-hover:hover{
+        color:#6e5494
     }
 </style>
 
