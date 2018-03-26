@@ -17,11 +17,12 @@ const Circle = resolve => {
  })
 }
 import JSON from '@/assets/JSON/skills.json'
+import vuex from '../vuex'
 export default {
   name:"skills",
   data:()=>{
     return {
-      skills:JSON
+      //skills:JSON
     }
   },
   created(){
@@ -29,6 +30,11 @@ export default {
   },
   components:{
     "SkillCircle":Circle
+  },
+  computed:{
+    skills:()=>{
+      return vuex.getters.getSkills
+    }
   }
 }
 </script>

@@ -114,17 +114,6 @@ export default {
             transform: scale(1)
         }
     }
-    @keyframes scale-6 {
-        0% {
-            transform:scale(0.7);
-        }
-        50% {
-            transform:scale(1);
-        }
-        100%{
-            transform: translate3d(0, 0, 10%) scale(0.7)
-        }
-    }
     @keyframes rotate {
 	    0%   { transform: rotate(0deg); }
 	    100% { transform: rotate(360deg); }
