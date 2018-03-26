@@ -1,9 +1,16 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <AboutMe></AboutMe>
-    <Skills></Skills>
-    <Works></Works>
+    <transition name="fadeOut">
+      <Loader v-show="isLoading"></Loader>
+    </transition>
+    <transition name="fadeIn">
+      <div v-show="!isLoading">
+        <Header></Header>
+        <AboutMe></AboutMe>
+        <Skills></Skills>
+        <Works></Works>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -28,13 +35,35 @@ const Works = resolve => {
  resolve(require('./components/Works.vue'))
  })
 }
+const Loader = resolve => {
+ require.ensure(['./components/parts/Loading'], () => {
+ resolve(require('./components/parts/Loading.vue'))
+ })
+}
 export default {
   name: 'app',
+  data(){
+    return {
+      isLoading:false
+    }
+  },
+  mounted(){
+    this.isLoading = true
+    setTimeout(()=>{
+      this.isLoading = false
+    },2000)
+  },
   components: {
     "Header":Header,
     "AboutMe":AboutMe,
     "Skills":Skills,
-    "Works":Works
+    "Works":Works,
+    "Loader":Loader
+  },  
+  watch:{
+    isLoading: function(value){      
+      document.querySelector('body').style.overflow = value? 'hidden' : null 
+    }
   }
 }
 </script>
@@ -87,4 +116,16 @@ header span {
   box-sizing: border-box;
   padding-top: 16px;
 }
+    .fadeOut-leave-active {
+        transition: opacity 0.15s;
+    }
+    .fadeOut-leave-to {
+        opacity: 0;
+    }
+    .fadeIn-enter-active{
+        transition: opacity 1s;
+    }
+    .fadeIn-enter, .fadeIn-leave-to {
+        opacity: 0;
+    }
 </style>

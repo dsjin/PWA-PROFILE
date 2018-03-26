@@ -114,8 +114,14 @@ export default {
     ._inline_flex{
         display: inline-flex;
     }
+    ._flex._column{
+        flex-direction: column
+    }
     ._flex._center_vertical , ._inline_flex._center_vertical{
         align-items: center;
+    }
+    ._flex._center_horizontal{
+        justify-content: center
     }
     .model-link.button h4{
         display: inline-block;
