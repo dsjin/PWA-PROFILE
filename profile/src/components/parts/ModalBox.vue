@@ -5,20 +5,20 @@
         </div>
         <div class="modal-content">
             <div class="modal-title">
-                Work1
+                {{data.title}}
             </div>
             <div class="modal-image">
-                <div class="img"></div>
-                <!--<img src="http://via.placeholder.com/720x1280">-->
+                <div class="img" :style="backgroundStyle"></div>
             </div>
             <div class="modal-description">
                 <h4>Description</h4>
-                <p>{{mock}}</p>
+                <p>{{data.description}}</p>
             </div>
             <div class="model-link">
-                <div class="_flex _center_vertical">
-                    <i class="fab fa-github-square fa-2x _purple-hover"></i>
-                    <p>Source code available</p>
+                <div class="_flex _center_vertical" v-for="item in data.links" :key="item.title">
+                    <a :href="item.path" target="_blank" v-if="item.path != '#'" ><i class="fa-2x _purple-hover" :class="item.icon"></i></a>
+                    <i class="fa-2x _purple-hover" :class="item.icon" v-else></i>
+                    <p>{{item.msg}}</p>
                 </div>
             </div>
         </div>
@@ -27,12 +27,22 @@
 <script>
 export default {
   name:"ModalBox",
+  props:['data'],
   data(){
       return {
           mock:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare felis non nisi pretium interdum. Curabitur vel nibh ultrices, volutpat urna sit amet, hendrerit metus. Curabitur condimentum dapibus orci, quis porttitor mauris tristique ac. Nunc et eros justo. Suspendisse ut turpis sem. Nullam augue lorem, pharetra a dolor vitae, dictum sodales nulla. Proin sagittis orci a risus pellentesque consequat. Sed sed ex vulputate, imperdiet dui eu, imperdiet leo. Curabitur vehicula interdum sapien, ac placerat enim fermentum finibus. Nam sit amet faucibus dui. Cras egestas orci quis nulla fermentum ornare."
       }
   },
   computed:{
+      backgroundStyle: function(){
+          return {
+
+              'background' : 'url(' + this.data.imgpath + ')',
+              'background-size': 'auto 100%',
+              'background-repeat': 'no-repeat',
+              'background-position': 'center',
+          }
+      }
   }
 }
 </script>
@@ -47,6 +57,9 @@ export default {
         .modal-image{
             height: 200px !important
         }
+    }
+    .model-link a{
+        color: currentColor;
     }
     ._over{
         position: fixed;
@@ -100,28 +113,9 @@ export default {
         margin-left: auto;
         margin-right: auto;
     }
-    .modal-image .img{
-        background: url('http://via.placeholder.com/350x150');
-        background-size: auto 100%;
-        background-repeat: no-repeat;
-        background-position: center;
+    .modal-image .img{  
         width: 100%;
         height: 100%;
-    }
-    ._flex{
-        display: flex;
-    }
-    ._inline_flex{
-        display: inline-flex;
-    }
-    ._flex._column{
-        flex-direction: column
-    }
-    ._flex._center_vertical , ._inline_flex._center_vertical{
-        align-items: center;
-    }
-    ._flex._center_horizontal{
-        justify-content: center
     }
     .model-link.button h4{
         display: inline-block;
@@ -144,7 +138,7 @@ export default {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .fab{
+    .fab, .fas{
         transition: all .2s ease-in;
     }
     ._purple-hover:hover{

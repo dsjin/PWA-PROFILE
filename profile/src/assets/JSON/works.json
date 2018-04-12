@@ -1,8 +1,21 @@
 [
     {
         "title":"Crowd Assist",
-        "imgpath":"",
+        "imgpath":"http://via.placeholder.com/720x1280",
         "description":"Crowd Assist is Android application that make everyone in community to help themselve from emergency and general situation ( Crowdsourcing ). The Application uses Decision Tree and rule for routing request to reasonable volunteers ( Criterion of select volunteer : for example, gender, age , distance far from requester , etc. )",
-        "link": []
+        "links": [
+            {
+                "title":"Github",
+                "icon": "fab fa-github-square",
+                "path": "http://github.com",
+                "msg": "Source code will be available after graduated."
+            },
+            {
+                "title": "NCIT",
+                "icon" : "fas fa-file-alt",
+                "path" : "#",
+                "msg" : "NCIT 2017 Best Paper Award"
+            }
+        ]
     }
 ]

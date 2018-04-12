@@ -1,17 +1,25 @@
 <template>
   <div class="card">
-      <div class="background">
+      <div class="background" :style="backgroundStyle">
           <div class="filter">
           </div>
       </div>
       <div class="card-description">
-          <h1>Work1</h1>
+          <h1>{{data.title}}</h1>
       </div>
   </div>
 </template>
 <script>
 export default {
-  name:"Card"
+  name:"Card",
+  props : ['data'],
+  computed : {
+      backgroundStyle: function(){
+          return {
+              'background' : 'url(' + this.data.imgpath + ') center center'
+          }
+      }
+  }
 }
 </script>
 <style scoped>
@@ -43,7 +51,6 @@ export default {
         transform: scale(1.1);
     }
     .background{
-        background: url('../../assets/logo.png') no-repeat center center;
         height: 400px;
         width: 100%;
         transition: all .5s ease-in-out;

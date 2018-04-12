@@ -6,20 +6,19 @@
         <div class="content-slide">
             <div class="has-slider">
                 <v-touch class="slider" :style="slideStyle" :class="{'is-animating':!isPan}" @horizontal-pan="onPan" @tap="onTap" :pan-options="{ threshold: 0, pointers: 0 }">
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
+                    <Card v-for="item in works" :key="item.title" :data="item"></Card>
                 </v-touch>
             </div>
         </div>
         <transition name="fade">
             <v-touch v-show="showModal" @tap="onTap" ref="modalTouch">
-                <Modal ref="modal"></Modal>
+                <Modal ref="modal" :data="workItem"></Modal>
             </v-touch>
         </transition>
     </div>
 </template>
 <script>
+import vuex from '../vuex'
 const Card = resolve => {
  require.ensure(['./parts/Card'], () => {
  resolve(require('./parts/Card.vue'))
@@ -34,7 +33,6 @@ export default {
   name:"works",
   data () {
     return {
-      child: 3,
       percentage:0.0,
       finalPercentage:0.0,
       activeSlide:0,
@@ -122,7 +120,8 @@ export default {
   computed: {
       slideStyle: function(){
           return {
-              transform : 'translateX(' + this.finalPercentage + '%)'
+              transform : 'translateX(' + this.finalPercentage + '%)',
+              width: vuex.getters.getCount*100+'%'
           }
       },
       modalStyle: function(){
@@ -133,6 +132,15 @@ export default {
           return {
               display : display
           }
+      },
+      works: function(){
+          return vuex.getters.getWorks
+      },
+      child: function(){
+          return vuex.getters.getCount
+      },
+      workItem: function(){
+          return vuex.getters.getWorkItem(this.activeSlide)
       }
   },
   updated(){
@@ -168,7 +176,6 @@ export default {
     }
     .slider{
         display: flex;
-        width: 300%;
     }
     .is-animating{
         transition: transform 400ms cubic-bezier( 0.5, 0, 0.5, 1 )

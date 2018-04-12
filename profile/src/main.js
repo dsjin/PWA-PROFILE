@@ -5,6 +5,7 @@ import App from './App'
 import vueResource from 'vue-resource'
 import VueTouch from 'vue-touch'
 import vuex from '@/vuex'
+import '!style-loader!css-loader!./assets/css/main.css'
 
 Vue.config.productionTip = false
 Vue.use(vueResource)
