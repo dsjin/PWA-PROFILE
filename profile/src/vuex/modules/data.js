@@ -1,5 +1,4 @@
 import getRawData from '../../api/fetch.js'
-import works from '../../assets/JSON/works'
 const state = {
     isLoading : true,
     skills: [],
@@ -17,10 +16,13 @@ const getters = {
 }
 const actions = {
     fetchData: async ({commit, state}) =>{
-        let data = await getRawData("https://us-central1-pwa-profile.cloudfunctions.net/skills");
-        commit('change', {val : works, name: "works"})
+        let data = await getRawData("https://us-central1-pwa-profile.cloudfunctions.net/skills")
+        let works = await getRawData("https://us-central1-pwa-profile.cloudfunctions.net/works")
         data.body.forEach(item => {
             commit('push', {val:item , name:"skills"})
+        })
+        works.body.forEach(item => {
+            commit('push', {val:item , name:"works"})
         })
         commit('change', {val : false, name: "isLoading"})
         commit('change', {val : state.works.length, name: "count"})

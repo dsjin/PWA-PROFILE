@@ -4,7 +4,7 @@
             <div class="profile-container">
                 <img src="../assets/images/profile.jpg"/>
                 <h1>THATCHAKON JOM-UD</h1>
-                <h2>Studying in Software Engineering @ ITKMITL</h2>
+                <h2>Graduated in Software Engineering @ ITKMITL</h2>
             </div>
         </div>
     </div>

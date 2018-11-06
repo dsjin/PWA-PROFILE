@@ -12,7 +12,7 @@
         </div>
         <transition name="fade">
             <v-touch v-show="showModal" @tap="onTap" ref="modalTouch">
-                <Modal ref="modal" :data="workItem"></Modal>
+                <Modal ref="modal" :item="workItem"></Modal>
             </v-touch>
         </transition>
     </div>
@@ -170,9 +170,6 @@ export default {
     }
     .has-slider{
         overflow: hidden;
-    }
-    .mama{
-        width: 100%
     }
     .slider{
         display: flex;
