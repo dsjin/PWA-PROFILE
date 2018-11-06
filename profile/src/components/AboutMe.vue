@@ -3,7 +3,7 @@
         <div class="content">
             <h3>About Me</h3>
             <p>
-                Hello! I'm Thatchakon Jom-ud. I'm a senior at KMITL in Faculty of Information Technology in Software Engineering.   
+                Hello! I'm Thatchakon Jom-ud. I'm an alumni at KMITL in Faculty of Information Technology in Software Engineering.   
             </p>
             <p>
                 I'm interested in Android development and web development. you can check my offical profile on Linkedin

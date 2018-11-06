@@ -109,6 +109,14 @@ const webpackConfig = merge(baseWebpackConfig, {
         {
           urlPattern: new RegExp('https://us-central1-pwa-profile.cloudfunctions.net/skills'),
           handler: 'cacheFirst'
+        },
+        {
+          urlPattern: new RegExp('https://use.fontawesome.com'),
+          handler: 'cacheFirst'
+        },
+        {
+          urlPattern: new RegExp('https://us-central1-pwa-profile.cloudfunctions.net/works'),
+          handler: 'cacheFirst'
         }
       ]
     })

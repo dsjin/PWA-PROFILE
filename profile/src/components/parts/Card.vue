@@ -16,7 +16,7 @@ export default {
   computed : {
       backgroundStyle: function(){
           return {
-              'background' : 'url(' + this.data.imgpath + ') center center'
+              'background' : 'url(' + this.data.imgpath + ') center center no-repeat'
           }
       }
   }

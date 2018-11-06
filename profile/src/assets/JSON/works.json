@@ -1,14 +1,14 @@
 [
     {
         "title":"Crowd Assist",
-        "imgpath":"http://via.placeholder.com/720x1280",
+        "imgpath":"https://firebasestorage.googleapis.com/v0/b/pwa-profile.appspot.com/o/logo1.png?alt=media&token=c48512db-2356-4ac3-bd95-5b8e837861ef",
         "description":"Crowd Assist is Android application that make everyone in community to help themselve from emergency and general situation ( Crowdsourcing ). The Application uses Decision Tree and rule for routing request to reasonable volunteers ( Criterion of select volunteer : for example, gender, age , distance far from requester , etc. )",
         "links": [
             {
                 "title":"Github",
                 "icon": "fab fa-github-square",
-                "path": "http://github.com",
-                "msg": "Source code will be available after graduated."
+                "path": "http://github.com/dsjin/crowd-assist",
+                "msg": "Girhub Repo"
             },
             {
                 "title": "NCIT",

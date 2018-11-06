@@ -9,6 +9,7 @@
         <AboutMe></AboutMe>
         <Skills></Skills>
         <Works></Works>
+        <ContactMe></ContactMe>
       </div>
     </transition>
   </div>
@@ -41,6 +42,11 @@ const Loader = resolve => {
  resolve(require('./components/parts/Loading.vue'))
  })
 }
+const ContactMe = resolve => {
+ require.ensure(['./components/ContactMe'], () => {
+ resolve(require('./components/ContactMe.vue'))
+ })
+}
 export default {
   name: 'app',
   data(){
@@ -61,7 +67,8 @@ export default {
     "AboutMe":AboutMe,
     "Skills":Skills,
     "Works":Works,
-    "Loader":Loader
+    "Loader":Loader,
+    "ContactMe":ContactMe
   },  
   watch:{
     isLoading: function(value){      

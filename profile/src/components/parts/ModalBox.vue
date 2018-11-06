@@ -27,20 +27,26 @@
 <script>
 export default {
   name:"ModalBox",
-  props:['data'],
+  props:['item'],
   data(){
       return {
-          mock:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare felis non nisi pretium interdum. Curabitur vel nibh ultrices, volutpat urna sit amet, hendrerit metus. Curabitur condimentum dapibus orci, quis porttitor mauris tristique ac. Nunc et eros justo. Suspendisse ut turpis sem. Nullam augue lorem, pharetra a dolor vitae, dictum sodales nulla. Proin sagittis orci a risus pellentesque consequat. Sed sed ex vulputate, imperdiet dui eu, imperdiet leo. Curabitur vehicula interdum sapien, ac placerat enim fermentum finibus. Nam sit amet faucibus dui. Cras egestas orci quis nulla fermentum ornare."
+          data:Object,
+          backgroundProp: Object
       }
   },
   computed:{
       backgroundStyle: function(){
-          return {
-
+          return this.backgroundProp
+      }
+  },
+  watch:{
+      item:function(value){
+          this.data = value
+          this.backgroundProp = {
               'background' : 'url(' + this.data.imgpath + ')',
               'background-size': 'auto 100%',
               'background-repeat': 'no-repeat',
-              'background-position': 'center',
+              'background-position': 'center'
           }
       }
   }
