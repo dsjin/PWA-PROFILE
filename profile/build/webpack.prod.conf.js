@@ -108,7 +108,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       runtimeCaching: [
         {
           urlPattern: new RegExp('https://us-central1-pwa-profile.cloudfunctions.net/skills'),
-          handler: 'cacheFirst'
+          handler: 'fastest'
         },
         {
           urlPattern: new RegExp('https://use.fontawesome.com'),
@@ -116,7 +116,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         },
         {
           urlPattern: new RegExp('https://us-central1-pwa-profile.cloudfunctions.net/works'),
-          handler: 'cacheFirst'
+          handler: 'fastest'
         }
       ]
     })
