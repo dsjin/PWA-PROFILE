@@ -36,7 +36,7 @@ Vue.mixin({
       }
     }
 })
-// vuex.dispatch("fetchData")
+vuex.dispatch("fetchData")
 new Vue({
   el: '#app',
   template: '<App/>',
