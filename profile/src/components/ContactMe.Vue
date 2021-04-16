@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-    name:"contactme"
+    name:"ContactMe"
 }
 </script>
 <style>

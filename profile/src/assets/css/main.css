@@ -13,6 +13,9 @@
 ._flex._center_horizontal{
     justify-content: center
 }
+._flex.justify_end {
+    justify-content: flex-end;
+}
 ._none{
     display: none
 }

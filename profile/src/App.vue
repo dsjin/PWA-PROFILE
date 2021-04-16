@@ -59,7 +59,7 @@ export default {
   },
   computed:{
     fetch(){
-        return vuex.getters.getLoading
+      return vuex.getters.getLoading
     }
   },
   components: {
@@ -76,9 +76,9 @@ export default {
     },
     fetch: function(value){
       if (!value) {
-          setTimeout(()=>{
-              this.isLoading = false
-          },2000)
+        setTimeout(()=>{
+            this.isLoading = false
+        },2000)
       }
     }
   }

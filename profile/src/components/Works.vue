@@ -44,7 +44,7 @@ export default {
   },
   created(){
       if(!this.$isMobile()){
-          window.addEventListener('scroll', this.onScroll)
+        window.addEventListener('scroll', this.onScroll)
       }
   },
   components:{

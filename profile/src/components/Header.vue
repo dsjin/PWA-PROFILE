@@ -1,6 +1,11 @@
 <template>
     <div id="header">
         <div class="container center">
+            <div class="_flex justify_end" style="padding:1em;">
+                <a href="https://blog.dsjin.tk" target="blank" style="text-decoration:none;font-size:1.2em">
+                    Blog
+                </a>
+            </div>
             <div class="profile-container">
                 <img src="../assets/images/profile.jpg"/>
                 <h1>THATCHAKON JOM-UD</h1>

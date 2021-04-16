@@ -6,7 +6,7 @@
                 Hello! I'm Thatchakon Jom-ud. I'm an alumni at KMITL in Faculty of Information Technology in Software Engineering.   
             </p>
             <p>
-                I'm interested in Android development and web development. you can check my offical profile on Linkedin
+                I'm interested in Android development and web development. you can check my offical profile on <a href="https://www.linkedin.com/in/thatchakonj/" target="blank">Linkedin</a>
             </p>
         </div>
     </div>
