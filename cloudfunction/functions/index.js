@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin")
 var serviceAccount = require("./key.json");
-const cors = require('cors')({origin: true});
+const cors = require('cors')({origin: 'https://dsjin.tk'});
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://pwa-profile.firebaseio.com"
