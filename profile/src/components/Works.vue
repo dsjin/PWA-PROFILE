@@ -74,11 +74,12 @@ export default {
           }
       },
       onTap:function(event){
-          if(event.target == this.$refs.modal.$el && this.$isMobile()){
-              this.showModal = false
-          }else{
-              this.showModal = true
-          }
+        //  && this.$isMobile()
+        if(event.target == this.$refs.modal.$el){
+          this.showModal = false
+        }else{
+          this.showModal = true
+        }
       },
       onScroll:function(event){
           if(window.pageYOffset >= this.$refs.Works.getBoundingClientRect().top && this.$refs.Works.getBoundingClientRect().bottom >= 0){
